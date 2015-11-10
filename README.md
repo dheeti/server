@@ -4,11 +4,13 @@ This repo contains some shell scripts and puppet code to get our server environm
 ### run
 You must have already created a DigitalOcean droplet and have root access
 
+Test that you can actually connect to Droplet
 ```
-# test that you can actually connect to Droplet
 ssh root@<host>
 exit
+```
 
-# run configure script
+Run configure script
+```
 scripts/configure.sh <host> admin
 ```
