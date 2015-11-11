@@ -87,6 +87,9 @@ Vagrant.configure(2) do |config|
   #   sudo apt-get install -y apache2
   # SHELL
 
-  config.vm.provision :shell, path: "scripts/remote.sh admin"
-
+  #config.vm.provision :shell, path: "scripts/remote.sh admin"
+  config.vm.provision "shell" do |s|
+    s.inline = "scripts/setup.sh"
+    s.args   = "admin"
+  end
 end
