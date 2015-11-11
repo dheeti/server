@@ -11,4 +11,16 @@ class users {
         managehome => true,
         shell => "/bin/bash",
     }
+
+    user { 'jeff':
+        ensure => present,
+        managehome => true,
+        shell => "/bin/bash",
+    }
+
+    ssh_authorized_key { 'jeff_ssh':
+        user => "jeff",
+        type => "rsa",
+        key => "puppet:///modules/users/jeff.pub",
+    } 
 }
