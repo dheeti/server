@@ -4,7 +4,7 @@ class users {
         ensure => present,
     }
 
-    user { 'flask-user':
+    user { 'node-user':
         require => Group['www-data'],
         ensure => present,
         groups => ['www-data'],
