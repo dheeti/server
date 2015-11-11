@@ -8,8 +8,7 @@ useradd -d ${home} -s /bin/bash -m ${user}
 adduser ${user} sudo
 
 # copy ssh key for root user to admin
-# root ssh key is created automatically by DigitalOcean
-# when a new droplet is created
+# root ssh key is assigned when a new droplet is created
 ssh=${home}/.ssh
 keys=.ssh/authorized_keys
 mkdir ${ssh}
@@ -27,10 +26,10 @@ puppet module install puppetlabs-java
 puppet module install amosjwood-neo4j
 
 # copy local modules into installation
-cp -r /tmp/puppet/modules/* /etc/puppet/modules
+cp -r /vagrant/puppet/modules/* /etc/puppet/modules
 
 # apply puppet configuration
-puppet apply /tmp/puppet/setup.pp
+puppet apply /vagrant/puppet/setup.pp
 
 # disable password logins
 sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config
