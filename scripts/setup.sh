@@ -7,6 +7,7 @@ apt-get install -y puppet
 # install required puppet modules
 puppet module install puppetlabs-java
 puppet module install amosjwood-neo4j
+puppet module install puppetlabs-vcsrepo
 
 # copy local modules into puppet modules
 cp -r /vagrant/puppet/modules/* /etc/puppet/modules
@@ -19,4 +20,4 @@ sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_
 echo "export EDITOR=/usr/bin/vim" >> /etc/environment
 
 service ssh restart
-
+service churchill-node start
