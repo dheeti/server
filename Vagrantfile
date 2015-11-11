@@ -37,10 +37,12 @@ Vagrant.configure(2) do |config|
   # accessing "localhost:8080" will access port 80 on the guest machine.
   # config.vm.network "forwarded_port", guest: 80, host: 8080
 
-  # API ??
+  # API
   config.vm.network "forwarded_port", guest: 80, host: 8080
-  # Neo4j ??
+  # Neo4j
   config.vm.network "forwarded_port", guest: 7474, host: 7474
+  # Node.js
+  config.vm.network "forwarded_port", guest: 3000, host: 3000
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
