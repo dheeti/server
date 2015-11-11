@@ -1,6 +1,6 @@
 #!/bin/bash
 
-user=$1
+user=admin
 home=/home/${user}
 
 # create new user with root priviliges
