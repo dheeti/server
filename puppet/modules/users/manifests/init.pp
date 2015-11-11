@@ -5,10 +5,10 @@ class users {
     }
 
     user { 'flask-user':
+        require => Group['www-data'],
         ensure => present,
         groups => ['www-data'],
-        membership => minimum,
+        managehome => true,
         shell => "/bin/bash",
-        require => Group['www-data']
     }
 }

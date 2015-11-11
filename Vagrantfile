@@ -38,9 +38,9 @@ Vagrant.configure(2) do |config|
   # config.vm.network "forwarded_port", guest: 80, host: 8080
 
   # API ??
-  config.vm.network "forwarded_port", guest: 80, host: 8081
+  config.vm.network "forwarded_port", guest: 80, host: 8080
   # Neo4j ??
-  config.vm.network "forwarded_port", guest: 7474, host: 7475
+  config.vm.network "forwarded_port", guest: 7474, host: 7474
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
