@@ -20,7 +20,7 @@ vagrant up
 After a few minutes depending on connection speed to download all the required files, you should now be able to ```vagrant ssh``` onto the virtual machine.
 
 ### server
-To deploy the environment onto DigitalOcean you will need to create an API Token on DigitalOcean and an SSH key and set proper environment variables.
+To deploy the environment onto DigitalOcean you will need to create an API Token and a SSH key and set proper environment variables.
 + [Follow stops to Generate Token](https://www.digitalocean.com/community/tutorials/how-to-use-the-digitalocean-api-v2)
 + [If needed create an SSH key](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2)
 
@@ -33,8 +33,8 @@ vagrant box add digital_ocean https://github.com/smdahlen/vagrant-digitalocean/r
 git clone https://github.com/psu-capstone/server.git
 cd server
 ````
-Create shell script that sets environment variables
-```vim vagrant_server.sh``` and add the following lines
+Create shell script that sets environment variables.
+```vim vagrant_server.sh``` and add the following lines...
 ```
 #!/bin/bash
 export VAGRANT_MODE="<dev|prod>" # dev or prod currently does the same thing
@@ -50,7 +50,8 @@ Make script executable and and run it
 chmod +x vagrant_server.sh
 ./vagrant_server.sh
 ```
-If everything works it should deploy the environment to a Droplet and print the IP that it can be accessed at.
+If everything works it should deploy the environment to a Droplet. If you scroll back up past the puppet
+output you should see the IP address it was assigned. You can use that address and connect as root user.
 
 
 
