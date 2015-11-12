@@ -15,9 +15,18 @@ cp -r /vagrant/puppet/modules/* /etc/puppet/modules
 # apply puppet configuration locally
 puppet apply /vagrant/puppet/setup.pp
 
+# create admin user and apply add everyones public keys
+# to its ssh authorized_keys file
+puppet apply /vagrant/puppet/users.pp
+adduser admin sudo
+
 # disable password logins
 sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config
 echo "export EDITOR=/usr/bin/vim" >> /etc/environment
 
 service ssh restart
 service churchill-node start
+
+# TODO
+# add to root bashrc so churchill-node service will find correct node
+# ln -s `which nodejs` /usr/bin/node

@@ -20,6 +20,8 @@ vcsrepo { '/home/node-user/churchill':
     provider => git,
     source   => 'https://github.com/psu-capstone/churchill.git',
     revision => 'ryan_prelim',
+    owner    => 'node-user',
+    group    => 'node-user',
 }
 
 class { 'churchill-node' :
