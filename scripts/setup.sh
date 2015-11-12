@@ -24,9 +24,8 @@ adduser admin sudo
 sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config
 echo "export EDITOR=/usr/bin/vim" >> /etc/environment
 
+# ubuntu node uses `nodejs` executable while churchill build uses `node` executable
+ln -s `which nodejs` /usr/bin/node
+
 service ssh restart
 service churchill-node start
-
-# TODO
-# add to root bashrc so churchill-node service will find correct node
-# ln -s `which nodejs` /usr/bin/node
