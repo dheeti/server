@@ -21,7 +21,7 @@ After a few minutes depending on connection speed to download all the required f
 
 ### server
 To deploy the environment onto DigitalOcean you will need to create an API Token and a SSH key and set proper environment variables.
-+ [Follow stops to Generate Token](https://www.digitalocean.com/community/tutorials/how-to-use-the-digitalocean-api-v2)
++ [Follow steps to Generate Token](https://www.digitalocean.com/community/tutorials/how-to-use-the-digitalocean-api-v2)
 + [If needed create an SSH key](https://www.digitalocean.com/community/tutorials/how-to-set-up-ssh-keys--2)
 
 ```
