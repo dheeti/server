@@ -27,5 +27,8 @@ echo "export EDITOR=/usr/bin/vim" >> /etc/environment
 # ubuntu node uses `nodejs` executable while churchill build uses `node` executable
 ln -s `which nodejs` /usr/bin/node
 
+# build test abortion graph
+/vagrant/scripts/load_abortion_neo4j.sh
+
 service ssh restart
 service churchill-node start
