@@ -42,7 +42,7 @@ RETURN value.name, avg(rel.value), count(*);
 
 
 // Example 5:
-// For policy 'p3' (Invest in birth control education programs) and
+// For policy 'p4' (Invest in birth control education programs) and
 // all Users who ranked it, is there a trend in how they also ranked Values?
 
 MATCH
@@ -53,7 +53,7 @@ MATCH
     (user)-[vrel:SUPPORTS]->(value),
     (user)-[prel:SUPPORTS]->(policy)
 WHERE
-    policy.id = 'p3'
+    policy.id = 'p4'
 RETURN
     count(user.id) AS connections,
     value.id, value.name, avg(vrel.value) AS avg_value_rank,
