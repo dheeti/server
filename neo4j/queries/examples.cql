@@ -3,6 +3,13 @@
 // the actual data model
 
 
+// Example 0:
+// Return the entire graph
+
+MATCH (node) RETURN node;
+
+
+
 // Example 1:
 // Return name and city property for each User node
 
