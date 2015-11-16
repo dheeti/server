@@ -20,6 +20,9 @@ puppet apply /vagrant/puppet/setup.pp
 puppet apply /vagrant/puppet/users.pp
 adduser admin sudo
 
+# prevent admin user from needing a password for sudo commands
+echo "admin  ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers
+
 # disable password logins
 sed -i "s/#PasswordAuthentication yes/PasswordAuthentication no/" /etc/ssh/sshd_config
 echo "export EDITOR=/usr/bin/vim" >> /etc/environment
