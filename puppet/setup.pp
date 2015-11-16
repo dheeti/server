@@ -4,6 +4,9 @@ class { 'java':
 
 class { 'neo4j' :
     require => Class['java'],
+    version => '2.3.1',
+    edition => 'community',
+    install_prefix => '/opt/neo4j', 
     jvm_init_memory => '128',
     jvm_max_memory  => '128',
 }
