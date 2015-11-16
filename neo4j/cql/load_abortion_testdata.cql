@@ -1,7 +1,7 @@
 // create test User nodes and define some relationships using csv files
-// User -> Policies
-// User -> Values
-// User -> Objectives
+// User -[SUPPORTS]-> Policy
+// User -[SUPPORTS]-> Value
+// User -[SUPPORTS]-> Objective
 
 
 // load test users
