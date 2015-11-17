@@ -12,13 +12,13 @@ puppet module install puppetlabs-vcsrepo
 # copy local modules into puppet modules
 cp -r /vagrant/puppet/modules/* /etc/puppet/modules
 
-# apply puppet configuration locally
-puppet apply /vagrant/puppet/setup.pp
-
 # create admin user and apply add everyones public keys
 # to its ssh authorized_keys file
 puppet apply /vagrant/puppet/users.pp
 adduser admin sudo
+
+# apply puppet configuration locally
+puppet apply /vagrant/puppet/setup.pp
 
 # prevent admin user from needing a password for sudo commands
 echo "admin  ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers
