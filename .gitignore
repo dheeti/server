@@ -3,3 +3,4 @@
 .vagrant
 vagrant_server.sh
 churchill
+.idea/
