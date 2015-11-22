@@ -1,21 +1,30 @@
 class { 'java':
-  distribution => 'jre',
+    distribution => 'jre',
 }
 
-class { 'neo4j' :
-    require         => Class['java'],
-    version         => '2.3.1',
-    edition         => 'community',
-    install_prefix  => '/opt/neo4j',
-    jvm_init_memory => '128',
-    jvm_max_memory  => '128',
+class { 'neo4j':
+    require                     => Class['java'],
+    version                     => '2.3.1',
+    edition                     => 'community',
+    install_prefix              => '/opt/neo4j',
+    jvm_init_memory             => '128',
+    jvm_max_memory              => '128',
+    allow_remote_connections    => true,
+    address                	    => '0.0.0.0',
 }
 
 # install git, nodejs, npm
-class { 'packages' : }
+class { 'packages': 
+    require     => Class['neo4j'],
+}
+
+# install python dependencies
+class {'python': 
+    require     => Class['packages'],
+}
 
 # create node-user
-class { 'users' :
+class { 'users':
     require     => Class['packages'],
 }
 
@@ -38,6 +47,7 @@ file { '/home/node-user/churchill':
 }
 
 # deploy upstart script to start churchill as service
-class { 'churchill-node' :
+class { 'churchill-node':
     require     => File['/home/node-user/churchill'],
 }
+
