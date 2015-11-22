@@ -25,7 +25,7 @@ vcsrepo { '/vagrant/churchill':
     ensure      => present,
     provider    => git,
     source      => 'https://github.com/psu-capstone/churchill.git',
-    revision    => 'master',
+    revision    => 'develop',
 }
 
 # create symlink so node-user service can access churchill
