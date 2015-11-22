@@ -1,5 +1,5 @@
 class packages {
-    $apt = ['git', 'nodejs', 'npm', 'python-virtualenv']
+    $apt = ['git', 'nodejs', 'npm']
 
     package { $apt:
         ensure => installed,
