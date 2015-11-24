@@ -1,22 +1,5 @@
-class { 'java':
-    distribution => 'jre',
-}
-
-class { 'neo4j':
-    require                     => Class['java'],
-    version                     => '2.3.1',
-    edition                     => 'community',
-    install_prefix              => '/opt/neo4j',
-    jvm_init_memory             => '128',
-    jvm_max_memory              => '128',
-    allow_remote_connections    => true,
-    address                	    => '0.0.0.0',
-}
-
 # install git, nodejs, npm
-class { 'packages': 
-    require     => Class['neo4j'],
-}
+class { 'packages': }
 
 # install python dependencies
 class {'python': 
@@ -50,4 +33,3 @@ file { '/home/node-user/churchill':
 class { 'churchill-node':
     require     => File['/home/node-user/churchill'],
 }
-
