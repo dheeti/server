@@ -8,7 +8,7 @@ class python {
 
 class python::packages {
     $apt = ['python-dev', 'build-essential', 'python-pip', ]
-    $pip = ['py2neo', ]
+    $pip = ['py2neo', 'flask', 'requests', ]
 
     package { $apt:
         require => Class['python'],
