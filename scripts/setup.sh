@@ -30,3 +30,4 @@ ln -s `which nodejs` /usr/bin/node
 
 service ssh restart
 service churchill-node start
+service dlab-api start

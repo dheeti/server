@@ -37,14 +37,13 @@ class { 'churchill-node':
     require     => File['/home/node-user/churchill'],
 }
 
-
-#vcsrepo { '/vagrant/api':
-#    require     => Class['users'],
-#    ensure      => present,
-#    provider    => git,
-#    source      => 'https://github.com/psu-capstone/dlab-api.git',
-#    revision    => 'develop',
-#}
+vcsrepo { '/vagrant/api':
+    require     => Class['users'],
+    ensure      => present,
+    provider    => git,
+    source      => 'https://github.com/psu-capstone/dlab-api.git',
+    revision    => 'develop',
+}
 
 file { '/var/www': 
     require     => Vcsrepo['/vagrant/api'],

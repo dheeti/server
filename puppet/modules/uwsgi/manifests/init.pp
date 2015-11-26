@@ -36,11 +36,11 @@ class uwsgi {
     file { "/var/log/dlab-api.log":
         ensure => present,
         owner => "api-user",
-        mode => "0755",
+        mode => "0640",
         require => User["api-user"],
     }
     
-    service { "uwsgi":
+    service { "dlab-api":
         ensure => running,
         provider => upstart,
         enable => true,
