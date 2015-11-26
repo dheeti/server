@@ -28,5 +28,7 @@ echo "export EDITOR=/usr/bin/vim" >> /etc/environment
 # ubuntu node uses `nodejs` executable while churchill build uses `node` executable
 ln -s `which nodejs` /usr/bin/node
 
-service ssh restart
-service churchill-node start
+# add rc.local script that redirects port 80 to nodejs port 3000
+mv /vagrant/scripts/rc.local /etc/rc.local
+
+reboot
