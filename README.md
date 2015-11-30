@@ -21,7 +21,8 @@ After a few minutes depending on connection speed to download all the required f
 
 Inside the cloned directory you will find a `churchill` and `api `folder. Each is an individual git repo pointing to https://github.com/psu-capstone/churchill and https://github.com/psu-capstone/dlab-api respectively.
 
-The `churchill` app is running at `127.0.0.1:3000` and the `dlab-api` app is running at `127.0.0.1:9000`
+The `churchill` app is running at `127.0.0.1:3000` and the `dlab-api` app is running at `127.0.0.1:9000`.
+(port 80 can also be used to access `churchill` which is forwarded to 3000)
 
 ### server
 To deploy the environment onto DigitalOcean you will need to create an API Token and a SSH key and set proper environment variables.
