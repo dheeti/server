@@ -21,6 +21,8 @@ vcsrepo { '/vagrant/churchill':
     provider    => git,
     source      => 'https://github.com/psu-capstone/churchill.git',
     revision    => 'develop',
+    owner       => 'admin',
+    group       => 'admin',
 }
 
 # create symlink so node-user service can access churchill
@@ -43,6 +45,8 @@ vcsrepo { '/vagrant/api':
     provider    => git,
     source      => 'https://github.com/psu-capstone/dlab-api.git',
     revision    => 'develop',
+    owner       => 'admin',
+    group       => 'admin',
 }
 
 file { '/var/www': 

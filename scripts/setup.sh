@@ -29,6 +29,6 @@ echo "export EDITOR=/usr/bin/vim" >> /etc/environment
 ln -s `which nodejs` /usr/bin/node
 
 # add rc.local script that redirects port 80 to nodejs port 3000
-mv /vagrant/scripts/rc.local /etc/rc.local
+cp /vagrant/scripts/rc.local /etc/rc.local
 
 reboot
