@@ -34,8 +34,8 @@ ln -s `which nodejs` /usr/bin/node
 cp /vagrant/scripts/rc.local /etc/rc.local
 
 # set default git config and make sure remote is https instead of ssh
-git config --global user.email "admin@dlab.com"
-git config --global user.name "Admin"
-git --git-dir=/vagrant/.git --work-tree=/vagrant remote set-url origin $repo
+#git config --global user.email "admin@dlab.com"
+#git config --global user.name "Admin"
+#git --git-dir=/vagrant/.git --work-tree=/vagrant remote set-url origin $repo
 
 reboot
