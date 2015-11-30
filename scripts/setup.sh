@@ -1,5 +1,7 @@
 #!/bin/bash
 
+repo=https://github.com/psu-capstone/server.git
+
 # install puppet
 apt-get update
 apt-get install -y git puppet
@@ -29,6 +31,11 @@ echo "export EDITOR=/usr/bin/vim" >> /etc/environment
 ln -s `which nodejs` /usr/bin/node
 
 # add rc.local script that redirects port 80 to nodejs port 3000
-mv /vagrant/scripts/rc.local /etc/rc.local
+cp /vagrant/scripts/rc.local /etc/rc.local
+
+# set default git config and make sure remote is https instead of ssh
+#git config --global user.email "admin@dlab.com"
+#git config --global user.name "Admin"
+#git --git-dir=/vagrant/.git --work-tree=/vagrant remote set-url origin $repo
 
 reboot
