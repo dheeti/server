@@ -1,18 +1,18 @@
 #!/bin/bash
 
+repo=https://github.com/psu-capstone/server.git
+
 # install puppet
 apt-get update
-apt-get install -y puppet
+apt-get install -y git puppet
 
 # install required puppet modules
-puppet module install puppetlabs-java
-puppet module install amosjwood-neo4j
 puppet module install puppetlabs-vcsrepo
 
 # copy local modules into puppet modules
 cp -r /vagrant/puppet/modules/* /etc/puppet/modules
 
-# create admin user and apply add everyones public keys
+# create admin user and add everyones public keys
 # to its ssh authorized_keys file
 puppet apply /vagrant/puppet/users.pp
 adduser admin sudo
@@ -30,8 +30,12 @@ echo "export EDITOR=/usr/bin/vim" >> /etc/environment
 # ubuntu node uses `nodejs` executable while churchill build uses `node` executable
 ln -s `which nodejs` /usr/bin/node
 
-# build test abortion graph
-/vagrant/scripts/load_abortion_neo4j.sh
+# add rc.local script that redirects port 80 to nodejs port 3000
+cp /vagrant/scripts/rc.local /etc/rc.local
 
-service ssh restart
-service churchill-node start
+# set default git config and make sure remote is https instead of ssh
+#git config --global user.email "admin@dlab.com"
+#git config --global user.name "Admin"
+#git --git-dir=/vagrant/.git --work-tree=/vagrant remote set-url origin $repo
+
+reboot

@@ -1,23 +1,18 @@
-class { 'java':
-  distribution => 'jre',
-}
-
-class { 'neo4j' :
-    require         => Class['java'],
-    version         => '2.3.1',
-    edition         => 'community',
-    install_prefix  => '/opt/neo4j',
-    jvm_init_memory => '128',
-    jvm_max_memory  => '128',
-}
-
 # install git, nodejs, npm
-class { 'packages' : }
+class { 'packages': }
 
-# create node-user
-class { 'users' :
+# install python dependencies
+class {'python': 
     require     => Class['packages'],
 }
+
+# create node-user
+class { 'users':
+    require     => Class['packages'],
+}
+
+include nginx
+include uwsgi
 
 # clone churchill into vagrant shared folder
 vcsrepo { '/vagrant/churchill':
@@ -26,6 +21,8 @@ vcsrepo { '/vagrant/churchill':
     provider    => git,
     source      => 'https://github.com/psu-capstone/churchill.git',
     revision    => 'develop',
+    owner       => 'admin',
+    group       => 'admin',
 }
 
 # create symlink so node-user service can access churchill
@@ -38,6 +35,32 @@ file { '/home/node-user/churchill':
 }
 
 # deploy upstart script to start churchill as service
-class { 'churchill-node' :
+class { 'churchill-node':
     require     => File['/home/node-user/churchill'],
 }
+
+vcsrepo { '/vagrant/api':
+    require     => Class['users'],
+    ensure      => present,
+    provider    => git,
+    source      => 'https://github.com/psu-capstone/dlab-api.git',
+    revision    => 'develop',
+    owner       => 'admin',
+    group       => 'admin',
+}
+
+file { '/var/www': 
+    require     => Vcsrepo['/vagrant/api'],
+    ensure      => 'directory',
+    owner       => www-data,
+    group       => www-data,
+}
+
+file { '/var/www/api': 
+    require     => File['/var/www'],
+    ensure      => link,
+    target      => '/vagrant/api',
+    owner       => www-data,
+    group       => www-data,
+}
+
