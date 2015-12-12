@@ -2,6 +2,13 @@
 
 repo=https://github.com/psu-capstone/server.git
 
+if [ -z "$NEO4J_URI" ]; then
+    NEO4J_URI="http://neo4j:neo@localhost:7474/db/data"
+fi 
+
+export FACTER_NEO4J_URI=${NEO4J_URI}
+echo "export NEO4J_URI=${NEO4J_URI}" >> /etc/profile
+
 # install puppet
 apt-get update
 apt-get install -y git puppet
