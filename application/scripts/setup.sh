@@ -2,6 +2,8 @@
 
 repo=https://github.com/psu-capstone/server.git
 
+# if no NEO4J_URI environment variable is not set
+# assume they are running a local db instance
 if [ -z "$NEO4J_URI" ]; then
     NEO4J_URI="http://neo4j:neo@localhost:7474/db/data"
 fi 
