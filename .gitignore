@@ -1,7 +1,6 @@
 *.~
 *.*swp
-.vagrant
-vagrant_server.sh
-churchill
+*.vagrant
+application/vagrant_server.sh
+application/churchill
 .idea/
-neo4j/python/env
