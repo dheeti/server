@@ -3,4 +3,6 @@ description "dlab api"
 start on runlevel [2345]
 stop on runlevel [!2345]
 
+env NEO4J_URI="<%= @neo4j_uri %>"
+
 exec /usr/local/bin/uwsgi <% @params.each_pair do | param, val | %> --<%= param %> <%= val %> <% end %>
