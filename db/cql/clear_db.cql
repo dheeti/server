@@ -5,4 +5,5 @@ MATCH (node:User) DETACH DELETE node;
 MATCH (node:Value) DETACH DELETE node;
 MATCH (node:Objective) DETACH DELETE node;
 MATCH (node:Policy) DETACH DELETE node;
+MATCH (node:Map) DETACH DELETE node;
 COMMIT
