@@ -1,7 +1,7 @@
 BEGIN
 
 LOAD CSV WITH HEADERS FROM 'file:///vagrant/data/nodes/issues.csv' AS line
-CREATE (:Issue { node_id: line.id, name: line.name});
+CREATE (:Issue { node_id: line.id, name: line.name, desc: line.desc});
 
 LOAD CSV WITH HEADERS FROM 'file:///vagrant/data/nodes/users.csv' AS line
 CREATE (:User { node_id: line.id, name: line.name, city: line.city});
