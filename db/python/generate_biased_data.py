@@ -52,16 +52,16 @@ def write_ranks(links_dir, users, values=[], objectives=[], policies=[]):
         for user in users:
             if random.random() > 0.5: # both receive positive ranks
                 writer.writerow(["i1", user, biased_vo_val, random.randint(0,RANK_MAX)])
-                writer.writerow(["i1", user, biased_vo_obj, random.randint(0,RANK_MAX)])
+                writer.writerow(["i1", user, biased_vo_obj, random.randint(1,RANK_MAX)])
             else: # both receive negative ranks
-                writer.writerow(["i1", user, biased_vo_val, random.randint(RANK_MIN,0)])
+                writer.writerow(["i1", user, biased_vo_val, random.randint(RANK_MIN,1)])
                 writer.writerow(["i1", user, biased_vo_obj, random.randint(RANK_MIN,0)])
          # corr(biased_op_obj, biased_op_pol) < 0         
             if random.random() > 0.5: # rank_obj >= 0, rank_pol <= 0
                 writer.writerow(["i1", user, biased_op_obj, random.randint(0,RANK_MAX)])
-                writer.writerow(["i1", user, biased_op_pol, random.randint(RANK_MIN,0)])
+                writer.writerow(["i1", user, biased_op_pol, random.randint(RANK_MIN,-1)])
             else: # rank_obj <= 0, rank_pol >= 0
-                writer.writerow(["i1", user, biased_op_obj, random.randint(RANK_MIN,0)])
+                writer.writerow(["i1", user, biased_op_obj, random.randint(RANK_MIN,-1)])
                 writer.writerow(["i1", user, biased_op_pol, random.randint(0,RANK_MAX)])
 
 
