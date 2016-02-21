@@ -20,7 +20,7 @@ vcsrepo { '/vagrant/churchill':
     ensure      => present,
     provider    => git,
     source      => 'https://github.com/psu-capstone/churchill.git',
-    revision    => 'develop',
+    revision    => 'deploy',
     owner       => 'admin',
     group       => 'admin',
 }

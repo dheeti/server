@@ -1,5 +1,5 @@
 class packages {
-    $apt = ['git', 'nodejs', 'npm']
+    $apt = ['git', 'nodejs', 'unzip', ]
 
     package { $apt:
         ensure => installed,
