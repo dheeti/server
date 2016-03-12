@@ -6,6 +6,9 @@ CREATE (:Issue { node_id: line.id, name: line.name, desc: line.desc});
 LOAD CSV WITH HEADERS FROM 'file:///vagrant/data/nodes/users.csv' AS line
 CREATE (:User { node_id: line.id, name: line.name, city: line.city});
 
+LOAD CSV WITH HEADERS FROM 'file:///vagrant/data/nodes/admin_user.csv' AS line
+CREATE (:User { node_id: line.id, passhash: line.passhash, is_admin: true});
+
 LOAD CSV WITH HEADERS FROM 'file:///vagrant/data/nodes/values.csv' AS line
 CREATE (:Value { node_id: line.id, name: line.name});
 
